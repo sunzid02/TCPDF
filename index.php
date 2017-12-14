@@ -7,12 +7,12 @@
     $output = '';
 
     //connect with database
-    $conn = mysqli_connect("localhost","root","","thanaaa");
+    $conn = mysqli_connect("localhost","root","","database_name");
 
 
 
     //fetching data
-    $query = "SELECT * FROM bangladesh_district_list";
+    $query = "SELECT * FROM table_name";
 
     //execute query
        //1st parameter is for database string and 2nd parameter is for your excutable query
@@ -31,11 +31,11 @@
 
         $output .= '
             <tr>
-              <td>'.$row['id'].'</td>
-              <td>'.$row["district_name"].'</td>
-              <td>'.$row["status"].'</td>
-              <td>'.$row["districtCode"].'</td>
-              <td>'.$row["divisionCode"].'</td>
+              <td>'.$row['column1'].'</td>
+              <td>'.$row["column2"].'</td>
+              <td>'.$row["column3"].'</td>
+              <td>'.$row["column4"].'</td>
+              <td>'.$row["column5"].'</td>
             </tr>
         ';
     }
@@ -45,7 +45,7 @@
   }
 
   //if anyone clicks on the button
-  if (isset($_POST["create_pdf"]))
+  if (isset($_POST["button_name"]))
   {
     # code...
     require_once("tcpdf/tcpdf.php");
@@ -85,11 +85,11 @@
      <h3 align="center">Bangladesh District List</h3><br />
           <table border="1" cellspacing = "0" cellpadding = "5">
           <tr>
-               <th width="5%">ID</th>
-               <th width="30%">District Name</th>
-               <th width="10%">Status</th>
-               <th width="20%">District Code</th>
-               <th width="20%">Division Code</th>
+               <th width="5%">column1</th>
+               <th width="30%">column2</th>
+               <th width="10%">column3</th>
+               <th width="20%">column4</th>
+               <th width="20%">column5</th>
           </tr>
       ';
 
@@ -126,11 +126,11 @@
          <div class="table-responsive">
               <table class="table table-bordered">
                    <tr>
-                        <th width="5%">ID</th>
-                        <th width="30%">District Name</th>
-                        <th width="10%">Status</th>
-                        <th width="20%">District Code</th>
-                        <th width="20%">Division Code</th>
+                        <th width="5%"> column1 </th>
+                        <th width="30%"> column2 </th>
+                        <th width="10%"> column3 </th>
+                        <th width="20%"> column4 </th>
+                        <th width="20%"> column1 </th>
                    </tr>
 
                    <?php
@@ -138,7 +138,7 @@
                    ?>
 
               </table>
-            
+
               <form method="post">
                    <input type="submit" name="create_pdf" class="btn btn-danger" value="Create PDF" />
               </form>
